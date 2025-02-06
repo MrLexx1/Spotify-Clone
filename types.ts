@@ -1,5 +1,14 @@
 import Stripe from "stripe";
 
+export interface Song {
+    id: string;
+    user_id: string;
+    author: string;
+    title: string;
+    song_path: string;
+    image_path: string;
+};
+
 export interface UserDetails {
     id: string;
     first_name: string;
@@ -40,7 +49,7 @@ export interface Subscription {
     status?: Stripe.Subscription.Status;
     metadata?: Stripe.Metadata;
     price_id?: string;
-    quality?: string;
+    quality?: number;
     cancel_at_period_end?: boolean;
     created: string;
     current_period_start: string;
