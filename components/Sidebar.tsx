@@ -13,10 +13,13 @@ import Library from "./Library";
 
 interface SidebarProps {
   children: React.ReactNode;
-  song: Song[];
+  songs: Song[];
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+const Sidebar: React.FC<SidebarProps> = ({ 
+  children,
+  songs
+ }) => {
   const pathname = usePathname();
 
   const routes = useMemo(
@@ -47,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="overflow-y-auto h-full">
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
       <main className="flex-1 h-full overflow-y-auto p-2">
